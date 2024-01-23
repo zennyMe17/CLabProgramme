@@ -38,4 +38,12 @@ int main(){
     return 0;
 }
 
-
+void create(){
+    printf("Enter the number of elements present in array = ");
+    scanf("%d",&n);
+    printf("Enter the numbers = ");
+    for (int i=0;i++;i<n)
+    {
+        scanf("%d",&a[i])
+    }
+}
