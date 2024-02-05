@@ -43,19 +43,31 @@ int main() {
 
 void push()
 {
-    int elem;
-    printf("Enter The Element To be Inserted = ");
-    scanf("%d",&elem);
-    stack[++top]=elem;
-    printf("Element is inserted\n");
-    
+    if (top==MAX-1)
+    {
+        printf("Stack is Overflow\n");
+    }
+    else
+    {
+        int elem;
+        printf("Enter The Element To be Inserted = ");
+        scanf("%d",&elem);
+        stack[++top]=elem;
+        printf("Element is inserted\n");
+    }
 }
 
 void pop()
 {
+        if (top==-1)
+    {
+        printf("Stack is underflow\n");
+    }
     
-    printf("Element poped is %d\n",stack[top--]);
-    
+   else
+   {
+        printf("Element poped is %d\n",stack[top--]);
+   } 
 }
 
 void display()
