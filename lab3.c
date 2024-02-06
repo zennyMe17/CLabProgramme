@@ -3,7 +3,7 @@
 
 void push(char x);
 char pop();
-int priority(char x);
+int prior(char x);
 
 char stack[100];
 int top = -1;
@@ -11,28 +11,26 @@ int top = -1;
 int main() {
 
     char exp[100], *e;
-
-    printf("Enter the value = ");
+    printf("Enter the expression = ");
     scanf("%s", exp);
     e = exp;
-
-    while ((*e) != '\0') {
+    while (*e != '\0') {
         if (isalnum(*e)) {
             printf("%c", *e);
-        } else if ((*e) == '(') {
+        } else if (*e == '(') {
             push(*e);
-        } else if ((*e) == ')') {
-            while (stack[top] != '(' && top != -1)
+        } else if (*e == ')') {
+            while (stack[top] != '(') {
                 printf("%c", pop());
-            if (stack[top] == '(')
-                pop(); 
+            }
+            pop(); 
         } else {
-            while (top != -1 && priority(stack[top]) >= priority(*e))
+            while (top != -1 && prior(stack[top]) >= prior(*e)) {
                 printf("%c", pop());
+            }
             push(*e);
         }
         e++;
-
     }
     while (top != -1) {
         printf("%c", pop());
@@ -52,12 +50,12 @@ char pop() {
         return stack[top--];
 }
 
-int priority(char x) {
+int prior(char x) {
     if (x == '(')
         return 0;
     if (x == '+' || x == '-')
         return 1;
     if (x == '*' || x == '/')
         return 2;
-    return -1; 
+    return -1;
 }
