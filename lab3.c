@@ -12,7 +12,7 @@ int main() {
 
     char exp[100], *e;
 
-    printf("Enter The Expression = ");
+    printf("Enter the value = ");
     scanf("%s", exp);
     e = exp;
 
