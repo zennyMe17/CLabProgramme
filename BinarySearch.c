@@ -35,4 +35,9 @@ int B_S(int arr[], int low, int high, int key)
             
     }
     
+    else 
+    {
+      printf ("Arrange the elements in               ascending order");
+    }
+    
 }
