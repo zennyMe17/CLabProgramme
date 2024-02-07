@@ -1,4 +1,3 @@
-// Online C compiler to run C program online
 #include <stdio.h>
 
 int B_S(int arr[], int low, int high, int key);
