@@ -78,7 +78,7 @@ int main() {
 
     while(1)
     {
-    printf("***************\n");
+    printf("*****************\n");
     printf("Enter the option \n1. Insertion\n2. Deletion\n3. Display\n4. Peep\n");
     scanf("%d",&ch);
         switch (ch)
