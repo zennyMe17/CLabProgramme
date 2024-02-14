@@ -1,10 +1,15 @@
 #include<stdio.h>
 
-#include<stdlib.h>
+#include<stdlib.h>\
+
+struct circularqueue
+{
+ int data;   
+};
 
 #define N 5
 
-int queue[N];
+struct circularqueue queue[N];
 int front = -1;
 int rear = -1;
 
@@ -14,7 +19,7 @@ void enqueue() {
     printf("Enter the number = ");
     scanf("%d", & x);
     front = rear = 0;
-    queue[rear] = x;
+    queue[rear].data = x;
     printf("Element is inserted\n");
   } else if ((rear + 1) % N == front) {
     printf("Queue is Full\n");
@@ -23,7 +28,7 @@ void enqueue() {
     printf("Enter the number = ");
     scanf("%d", & x);
     rear = (rear + 1) % N;
-    queue[rear] = x;
+    queue[rear].data = x;
     printf("Element is inserted\n");
   }
 }
@@ -47,16 +52,16 @@ void display() {
     printf("Elements present in Queue are =\n");
     int i = front;
     while (i != rear) {
-      printf("%d\t", queue[i]);
+      printf("%d\t", queue[i].data);
       i = (i + 1) % N;
     }
-    printf("%d", queue[i]);
+    printf("%d", queue[i].data);
     printf("\n");
   }
 }
 
 void peep() {
-  printf("Element present at front is = %d\n", queue[front]);
+  printf("Element present at front is = %d\n", queue[front].data);
 }
 void main() {
   int ch;
