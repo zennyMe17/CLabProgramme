@@ -74,8 +74,23 @@ void in_at_beginning()
     newnode=(struct node *)malloc(sizeof(struct node));
     printf("Enter the element to be inserted = ");
     scanf("%d",&newnode->data);
-    newnode->next=head->next;
+    newnode->next=head;
     head=newnode;
+}
+
+void in_at_ending()
+{
+    temp=head;
+    while(temp->next != 0)
+    {
+        temp=temp->next;
+    }
+    newnode=(struct node *)malloc(sizeof(struct node));
+    printf("Enter the element to be inserted = ");
+    scanf("%d",&newnode->data);
+    newnode->next=0;
+    temp->next=newnode;
+    
 }
 
 void main()
@@ -83,7 +98,7 @@ void main()
     int ch;
     while(1)
     {
-        printf("Enter the choice \n1. To create a new node\n2. To display node\n3. To insert any value\n4. To insert at Beginning\n5. To Exit =\n ");
+        printf("Enter the choice \n1. To create a new node\n2. To display node\n3. To insert any value\n4. To insert at Beginning\n5. To insert at End\n6. To Exit =\n ");
         scanf("%d",&ch);
         switch(ch)
         {
@@ -108,6 +123,11 @@ void main()
                 break;
             }
             case 5:
+            {
+                in_at_ending();
+                break;
+            }
+            case 6:
             {
                 exit(0);
                 break;
