@@ -13,20 +13,29 @@ struct node *head=0, *newnode, *temp, *prevnode;
 
 void create()
 {
-    newnode=(struct node *)malloc(sizeof(struct node));
+    newnode = (struct node *)malloc(sizeof(struct node));
     printf("Enter The name = ");
-    scanf("%s",newnode->data);
+    scanf("%s", newnode->data);
     newnode->next = 0;
-    if (head == 0)
+
+    if (head == 0 || strcmp(newnode->data, head->data) < 0)
     {
-        head=temp=newnode;
+        newnode->next = head;
+        head = newnode;
     }
     else
     {
-        temp->next=newnode;
-        temp=newnode;
+        temp = head;
+        while (temp->next != 0 && strcmp(newnode->data,
+        temp->next->data) > 0)
+        {
+            temp = temp->next;
+        }
+        newnode->next = temp->next;
+        temp->next = newnode;
     }
 }
+
 
 void display()
 {
